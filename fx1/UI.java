@@ -31,7 +31,7 @@ public class UI extends Application {
         MatPane matPane = new MatPane();
         matPane.getChildren().addAll(matPane.getMatView() ,
                                      matPane.getDeckView(),
-                                     matPane.getTestImage().getFaceView());
+                                     matPane.getImageAt(0).getFaceView());
 
         BorderPane gamePane = new BorderPane();
         gamePane.setLeft(menu);
