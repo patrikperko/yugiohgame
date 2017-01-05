@@ -6,14 +6,14 @@ import javafx.scene.image.ImageView;
 public class HandPane extends StackPane {
     private Image handBackgroundImage;
     private ImageView handBackgroundView;
-    private CardImage[] handImages;
+    // private CardImage[] handImages;
     private HBox handLayout;
 
     public HandPane() {
         handBackgroundImage = new Image("file:handbackground.jpg");
         handBackgroundView = new ImageView(handBackgroundImage);
         setHandBackgroundSize();
-        handImages = new CardImage[10];
+        // handImages = new CardImage[10];
         handLayout = new HBox();
         draw();
     }
@@ -36,8 +36,13 @@ public class HandPane extends StackPane {
     }
 
     public void draw() {
+
         handLayout.getChildren().addAll
-        (Deck.getCardAt(0).getCardImage().getFaceView());
-        Deck.getCardAt(0).getCardImage().getFaceView().setTranslateY(0);
+        (Deck.getCardImageAt(0).getFaceView());
+        Deck.getCardImageAt(0).getFaceView().setTranslateY(0);
+
+        handLayout.getChildren().addAll
+        (Deck.getCardImageAt(1).getFaceView());
+        Deck.getCardImageAt(1).getFaceView().setTranslateY(0);
     }
 }

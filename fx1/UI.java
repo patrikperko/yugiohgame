@@ -30,8 +30,7 @@ public class UI extends Application {
 
         MatPane matPane = new MatPane();
         matPane.getChildren().addAll(matPane.getMatView() ,
-                                     matPane.getDeckView(),
-                                     matPane.getImageAt(0).getFaceView());
+                                     matPane.getDeckView());
 
         HandPane handPane = new HandPane();
         handPane.getChildren().addAll(handPane.getHandBackgroundView(),

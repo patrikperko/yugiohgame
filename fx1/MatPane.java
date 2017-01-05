@@ -6,7 +6,6 @@ import javafx.scene.input.MouseEvent;
 public class MatPane extends StackPane {
 
     private CardImage deckImage;
-    private CardImage[] cardImages;
     private Image matImage;
     private ImageView deckView;
     private ImageView matView;
@@ -16,7 +15,7 @@ public class MatPane extends StackPane {
         matImage = new Image("file:background.jpg");
         matView = new ImageView(matImage);
         setMatSize();
-        displayCards();
+        //displayCards();
     }
 
     public void setMatSize() {
@@ -40,26 +39,29 @@ public class MatPane extends StackPane {
     }
 
     //needs revision
-    private void displayCards() {
+    // private void displayCards() {
         //try to show a card in the deck
-        cardImages = new CardImage[10];
-        cardImages[0] = new CardImage();
-        cardImages[0].setFaceView(new ImageView(new Image("file:spellcard.jpg")));
-        cardImages[0].setMonsterPos1();
-        cardImages[0].setSize();
+        // cardImages = new CardImage[10];
+        // cardImages[0] = new CardImage();
+        // cardImages[0].setFaceView(new ImageView(new Image("file:spellcard.jpg")));
+        // cardImages[0].setMonsterPos1();
+        // cardImages[0].setSize();
+
+        // cardImages[1] = new CardImage();
+        // cardImages[1].setFaceView(new ImageView(new Image("file:spellcard.jpg")));
+        // cardImages[1].setMonsterPos1();
+        // cardImages[1].setSize();
+
         // cardImages[0].getFaceView().addEventHandler(MouseEvent.MOUSE_CLICKED,
         //     (MouseEvent e) -> {
         //         cardImages[0].setMonsterPos5();
         //     });
 
-        setCardImageAt(0);
-    }
+    //     setCardImageAt(0);
+    //     setCardImageAt(1);
+    // }
 
     public CardImage getImageAt(int i) {
         return Deck.getCardAt(i).getCardImage();
-    }
-
-    public void setCardImageAt(int i) {
-        Deck.getCardAt(i).setCardImage(cardImages[i]);
     }
 }
