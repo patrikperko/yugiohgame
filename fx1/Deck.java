@@ -3,30 +3,37 @@ import java.util.ArrayList;
 
 public class Deck {
 
-    protected ArrayList<Card> backing;
+    protected static ArrayList<Card> backing;
+    private static Deck instance = new Deck();
 
     public Deck() {
-        backing = new ArrayList<Card>();
+        instance = this; //pseudo singleton
+        backing = new ArrayList<Card>(40);
+        addSpellCard(new SpellCard("reigeki"));
     }
 
-    public void addSpellCard(SpellCard card) {
+    public static void addSpellCard(SpellCard card) {
         backing.add(card);
     }
 
-    public void addTrapCard(TrapCard card) {
+    public static void addTrapCard(TrapCard card) {
         backing.add(card);
     }
 
-    public void addMonsterCard(MonsterCard card) {
+    public static void addMonsterCard(MonsterCard card) {
         backing.add(card);
     }
 
-    public ArrayList<Card> getBacking() {
+    public static ArrayList<Card> getBacking() {
         return backing;
     }
 
-    public Card getCardAt(int i) {
+    public static Card getCardAt(int i) {
         return backing.get(i);
+    }
+
+    public static Deck getInstance() {
+        return instance;
     }
 
 }

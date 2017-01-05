@@ -5,18 +5,14 @@ import javafx.scene.input.MouseEvent;
 
 public class MatPane extends StackPane {
 
-    private Deck deck;
     private CardImage deckImage;
     private CardImage[] cardImages;
     private Image matImage;
     private ImageView deckView;
     private ImageView matView;
 
-    private ImageView testView;
-
     public MatPane() {
-
-        setUpDeck();
+        displayDeck();
         matImage = new Image("file:background.jpg");
         matView = new ImageView(matImage);
         setMatSize();
@@ -28,10 +24,6 @@ public class MatPane extends StackPane {
         matView.setFitHeight(720);
     }
 
-    public Deck getDeck() {
-        return deck;
-    }
-
     public ImageView getDeckView() {
         return deckView;
     }
@@ -40,14 +32,14 @@ public class MatPane extends StackPane {
         return matView;
     }
 
-    private void setUpDeck() {
-        deck = new KaibaDeck();
+    private void displayDeck() {
         deckImage = new CardImage();
         deckImage.setDeckPos();
         deckImage.setSize();
         deckView = deckImage.getBackView();
     }
 
+    //needs revision
     private void displayCards() {
         //try to show a card in the deck
         cardImages = new CardImage[10];
@@ -55,18 +47,19 @@ public class MatPane extends StackPane {
         cardImages[0].setFaceView(new ImageView(new Image("file:spellcard.jpg")));
         cardImages[0].setMonsterPos1();
         cardImages[0].setSize();
-        cardImages[0].getFaceView().addEventHandler(MouseEvent.MOUSE_CLICKED,
-            (MouseEvent e) -> {
-                cardImages[0].setMonsterPos5();
-            });
+        // cardImages[0].getFaceView().addEventHandler(MouseEvent.MOUSE_CLICKED,
+        //     (MouseEvent e) -> {
+        //         cardImages[0].setMonsterPos5();
+        //     });
 
-        deck.getCardAt(0).setCardImage(cardImages[0]);
-
-
-        testView = deck.getCardAt(0).getCardImage().getFaceView();
+        setCardImageAt(0);
     }
 
     public CardImage getImageAt(int i) {
-        return cardImages[i];
+        return Deck.getCardAt(i).getCardImage();
+    }
+
+    public void setCardImageAt(int i) {
+        Deck.getCardAt(i).setCardImage(cardImages[i]);
     }
 }

@@ -33,9 +33,14 @@ public class UI extends Application {
                                      matPane.getDeckView(),
                                      matPane.getImageAt(0).getFaceView());
 
+        HandPane handPane = new HandPane();
+        handPane.getChildren().addAll(handPane.getHandBackgroundView(),
+                                      handPane.getHandLayout());
+
         BorderPane gamePane = new BorderPane();
         gamePane.setLeft(menu);
         gamePane.setCenter(matPane);
+        gamePane.setBottom(handPane);
 
         Scene scene1 = new Scene(gamePane);
         stage1.setScene(scene1);
