@@ -51,4 +51,5 @@ public class Deck {
         cardImages[i].setSize();
         getCardAt(i).setCardImage(cardImages[i]);
     }
+
 }

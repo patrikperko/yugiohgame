@@ -2,20 +2,21 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 
 public class HandPane extends StackPane {
     private Image handBackgroundImage;
     private ImageView handBackgroundView;
-    // private CardImage[] handImages;
     private HBox handLayout;
 
     public HandPane() {
+        super();
         handBackgroundImage = new Image("file:handbackground.jpg");
         handBackgroundView = new ImageView(handBackgroundImage);
         setHandBackgroundSize();
-        // handImages = new CardImage[10];
         handLayout = new HBox();
         draw();
+        clickable(0);
     }
 
     public Image getHandBackgroundImage() {
@@ -36,13 +37,15 @@ public class HandPane extends StackPane {
     }
 
     public void draw() {
-
         handLayout.getChildren().addAll
         (Deck.getCardImageAt(0).getFaceView());
         Deck.getCardImageAt(0).getFaceView().setTranslateY(0);
+    }
 
-        handLayout.getChildren().addAll
-        (Deck.getCardImageAt(1).getFaceView());
-        Deck.getCardImageAt(1).getFaceView().setTranslateY(0);
+    public void clickable(int i) {
+        Deck.getCardImageAt(i).getFaceView().addEventHandler(MouseEvent.MOUSE_CLICKED,
+            (MouseEvent e) -> {
+                Deck.getCardImageAt(i).getFaceView().setTranslateX(100);
+            });
     }
 }
