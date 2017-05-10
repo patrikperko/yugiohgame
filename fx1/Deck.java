@@ -5,9 +5,10 @@ import javafx.scene.image.ImageView;
 
 public class Deck {
 
-    private static ArrayList<Card> backing = new ArrayList<Card>(40);;
+    // private static ArrayList<Card> backing = new ArrayList<Card>(40);;
     private static CardImage[] cardImages = new CardImage[40];
     private static Deck instance = new Deck();
+    private static CardStack<Card> deckStack = new CardStack<Card>();
 
     protected Deck() {
         instance = this; //pseudo singleton
@@ -18,38 +19,38 @@ public class Deck {
     }
 
     public static void addSpellCard(SpellCard card) {
-        backing.add(card);
+        deckStack.enqueue(card);
     }
 
     public static void addTrapCard(TrapCard card) {
-        backing.add(card);
+        deckStack.enqueue(card);
     }
 
     public static void addMonsterCard(MonsterCard card) {
-        backing.add(card);
+        deckStack.enqueue(card);
     }
 
-    public static ArrayList<Card> getBacking() {
-        return backing;
-    }
-
-    public static Card getCardAt(int i) {
-        return backing.get(i);
+    public static CardStack<Card> getDeckStack() {
+        return deckStack;
     }
 
     public static Deck getInstance() {
         return instance;
     }
 
-    public static CardImage getCardImageAt(int i) {
-        return getCardAt(i).getCardImage();
+    public static Card draw() {
+        return (Card) deckStack.dequeue();
     }
 
-    public static void setCardImageAt(int i, String fileName) {
-        cardImages[i] = new CardImage();
-        cardImages[i].setFaceView(new ImageView(new Image(fileName)));
-        cardImages[i].setSize();
-        getCardAt(i).setCardImage(cardImages[i]);
-    }
+    // public static CardImage getCardImage(int i) {
+    //     return getCardAt(i).getCardImage();
+    // }
+
+    // public static void setCardImageAt(int i, String fileName) {
+    //     cardImages[i] = new CardImage();
+    //     cardImages[i].setFaceView(new ImageView(new Image(fileName)));
+    //     cardImages[i].setSize();
+    //     getCardAt(i).setCardImage(cardImages[i]);
+    // }
 
 }
