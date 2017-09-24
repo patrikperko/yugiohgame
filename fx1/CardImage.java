@@ -13,9 +13,9 @@ public class CardImage {
         back = new Image("file:cardback.png");
         faceView = new ImageView();
         backView = new ImageView();
-
         faceView.setImage(face);
         backView.setImage(back);
+	setSize();
 
     }
 

@@ -37,15 +37,14 @@ public class HandPane extends StackPane {
     }
 
     public void draw() {
-        //handLayout.getChildren().addAll
-        //(Deck.getCardImageAt(0).getFaceView());
-        //Deck.getCardImageAt(0).getFaceView().setTranslateY(0);
+        handLayout.getChildren().addAll(Deck.getCardImageAt(0).getFaceView());
+        Deck.getCardImageAt(0).getFaceView().setTranslateY(0);
     }
 
     public void clickable(int i) {
-        //Deck.getCardImageAt(i).getFaceView().addEventHandler(MouseEvent.MOUSE_CLICKED,
-	//(MouseEvent e) -> {
-								 // Deck.getCardImageAt(i).getFaceView().setTranslateX(100);
-	// });
+        Deck.getCardImageAt(i).getFaceView().addEventHandler(MouseEvent.MOUSE_CLICKED,
+							     (MouseEvent e) -> {
+								 Deck.getCardImageAt(i).getFaceView().setTranslateX(100);
+	});
     }
 }
