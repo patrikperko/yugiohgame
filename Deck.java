@@ -5,33 +5,32 @@ import javafx.scene.image.ImageView;
 
 public class Deck {
 
-    private static ArrayList<Card> backing = new ArrayList<Card>(40);;
+    private static ArrayList<Card> deckStack = new ArrayList<Card>(40);;
     private static CardImage[] cardImages = new CardImage[40];
     private static Deck instance = new Deck();
-    private static CardStack<Card> deckStack = new CardStack<Card>();
-
+    
     protected Deck() {
         instance = this; //pseudo singleton
-	//addSpellCard(new SpellCard("reigeki"));
+	addSpellCard(new SpellCard("reigeki"));
         //addSpellCard(new SpellCard("reigeki"));
         setCardImageAt(0, "file:spellcard.jpg");
         //setCardImageAt(1, "file:spellcard.jpg");
     }
 
     public static void addSpellCard(SpellCard card) {
-	backing.add(card);
+	deckStack.add(card);
     }
 
     public static void addTrapCard(TrapCard card) {
-        deckStack.enqueue(card);
+        deckStack.add(card);
     }
 
     public static void addMonsterCard(MonsterCard card) {
-        deckStack.enqueue(card);
+        deckStack.add(card);
     }
 
     public static ArrayList<Card> getDeckStack() {
-        return backing;
+        return deckStack;
     }
 
     public static Deck getInstance() {
@@ -39,7 +38,7 @@ public class Deck {
     }
 
     public static Card draw() {
-        return (Card) backing.remove(0);
+        return (Card) deckStack.remove(0);
     }
 
     public static CardImage getCardImageAt(int i) {
