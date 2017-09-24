@@ -38,7 +38,7 @@ public class MatPane extends StackPane {
         deckView = deckImage.getBackView();
     }
 
-    public CardImage getImageAt(int i) {
-        return Deck.getCardAt(i).getCardImage();
-    }
+    //public CardImage getImageAt(int i) {
+	// return Deck.getCardAt(i).getCardImage();
+	//}
 }

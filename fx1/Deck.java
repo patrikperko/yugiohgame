@@ -14,8 +14,8 @@ public class Deck {
         instance = this; //pseudo singleton
         addSpellCard(new SpellCard("reigeki"));
         addSpellCard(new SpellCard("reigeki"));
-        setCardImageAt(0, "file:spellcard.jpg");
-        setCardImageAt(1, "file:spellcard.jpg");
+        //setCardImageAt(0, "file:spellcard.jpg");
+        //setCardImageAt(1, "file:spellcard.jpg");
     }
 
     public static void addSpellCard(SpellCard card) {
