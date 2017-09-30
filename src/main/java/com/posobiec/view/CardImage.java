@@ -13,7 +13,7 @@ public class CardImage {
     private ImageView backView;
 
     public CardImage() {
-        face = new Image("file:../../../../../resources/main/spellcard.jpg");
+        face = new Image("file:spellcard.jpg");
         back = new Image("file:cardback.png");
         faceView = new ImageView();
         backView = new ImageView();

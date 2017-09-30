@@ -2,6 +2,9 @@ package com.posobiec.controller;
 
 import com.posobiec.model.*;
 import com.posobiec.view.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
@@ -16,7 +19,14 @@ public class MatPane extends StackPane {
 
     public MatPane() {
         displayDeck();
-        matImage = new Image("file:background.jpg");
+	try {
+	    //hard coded filePath for background.jpg
+	    FileInputStream backgroundInputStream = new FileInputStream("/mnt/d/code/yugioh/yugiohgame/src/main/resources/background.jpg");
+	    matImage = new Image(backgroundInputStream);
+	} catch (FileNotFoundException e) {
+	}
+	    
+        
         matView = new ImageView(matImage);
         setMatSize();
         //displayCards();
