@@ -19,14 +19,8 @@ public class MatPane extends StackPane {
 
     public MatPane() {
         displayDeck();
-	try {
-	    //hard coded filePath for background.jpg
-	    FileInputStream backgroundInputStream = new FileInputStream("/mnt/d/code/yugioh/yugiohgame/src/main/resources/background.jpg");
-	    matImage = new Image(backgroundInputStream);
-	} catch (FileNotFoundException e) {
-	}
-	    
-        
+	ClassLoader classLoader = getClass().getClassLoader();
+	matImage = new Image(classLoader.getResource("panes/background.jpg").toString());
         matView = new ImageView(matImage);
         setMatSize();
         //displayCards();
