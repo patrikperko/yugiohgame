@@ -8,15 +8,27 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
+
 public class HandPane extends StackPane {
     private Image handBackgroundImage;
     private ImageView handBackgroundView;
     private HBox handLayout;
 
+    
     public HandPane() {
         super();
-        handBackgroundImage = new Image("file:handbackground.jpg");
-        handBackgroundView = new ImageView(handBackgroundImage);
+
+
+	ClassLoader classLoader = getClass().getClassLoader();
+	handBackgroundImage = new Image(classLoader.getResource("panes/handbackground.jpg").toString());
+	handBackgroundView = new ImageView(handBackgroundImage);
+	
+        //handBackgroundImage = new Image("file:handbackground.jpg");
+        //handBackgroundView = new ImageView(handBackgroundImage);
         setHandBackgroundSize();
         handLayout = new HBox();
         draw();
