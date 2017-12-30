@@ -11,7 +11,6 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.input.MouseEvent;
 
 public class MatPane extends StackPane {
-
     private CardImage deckImage;
     private Image matImage;
     private ImageView deckView;
